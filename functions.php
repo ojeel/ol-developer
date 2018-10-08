@@ -1,40 +1,40 @@
 <?php
 /* ************************************************************ Get LoggedIn User info ************************************************************ */	
-if(!function_exists('xl_current_user')) {
-	function xl_current_user() {
+if(!function_exists('ol_current_user')) {
+	function ol_current_user() {
 		$current_user = wp_get_current_user();
 		
-		$xlCurrentUser	= array(	
+		$olCurrentUser	= array(	
 			'userId'	=> $current_user->ID,
 			'userLogin'	=> $current_user->user_login,
 			'displayName'	=> $current_user->display_name,
 			'userEmail'	=> $current_user->user_email
 		);
-		return $xlCurrentUser;
+		return $olCurrentUser;
 	}
 }
-add_action( 'init', 'xl_current_user', 10 );
+add_action( 'init', 'ol_current_user', 10 );
 
 
 /*
  * *********************************************************************************************************************************************
  * Add Google Analytics Tracking Code
- * This will work only if the Option is enabled and Tracking code is present in the XL Settings page
+ * This will work only if the Option is enabled and Tracking code is present in the OL Settings page
 */
 
-$xlGoogleAnalytics		= get_option('xl_google_analytics');
+$olGoogleAnalytics		= get_option('ol_google_analytics');
 
-if( ($xlGoogleAnalytics == "enable") ) {
-	function xl_google_analytics() {
+if( ($olGoogleAnalytics == "enable") ) {
+	function ol_google_analytics() {
 		
-		$xlGoogleAnalyticsCode	= get_option('xl_google_analytics_code');
-		echo $xlGoogleAnalyticsCode;
+		$olGoogleAnalyticsCode	= get_option('ol_google_analytics_code');
+		echo $olGoogleAnalyticsCode;
 	}
-	add_action( 'wp_head', 'xl_google_analytics', 10);
+	add_action( 'wp_head', 'ol_google_analytics', 10);
 }
 
 /********************************************** Number Format with Rupee Symbol ******************************************************/
-function xl_rupee($amt) {
+function ol_rupee($amt) {
 	$rupees	= '&#8377; '. number_format($amt, 2);
 	return $rupees;
 }

@@ -2,7 +2,7 @@
 /**
  * Template Name: Manage LMS
  */ 
-$stylePath = XLDEV_PATH . "assets/styles/admin-style.php";
+$stylePath = OLDEV_PATH . "assets/styles/admin-style.php";
 include_once($stylePath);
 
 global $wpdb;
@@ -10,7 +10,7 @@ date_default_timezone_set("Asia/Kolkata");
 
 ?>
 
-<h1 class="page-title">XL Settings</h1>
+<h1 class="page-title">OL Settings</h1>
 
 <div class="main-container">
 	
@@ -34,76 +34,76 @@ date_default_timezone_set("Asia/Kolkata");
 					
 				<div class="inner-container-div">
 					<?php
-						/************************************************ Get XL Panel Options and Form validation ************************************************/
-						if(isset($_POST['xlGenSettingBtn'])) {
+						/************************************************ Get OL Panel Options and Form validation ************************************************/
+						if(isset($_POST['olGenSettingBtn'])) {
 							
-							/***************** XL Login GoAway *****************/
-							$xlLoginGoAway = $_POST['xlLoginGoAway'];
+							/***************** OL Login GoAway *****************/
+							$olLoginGoAway = $_POST['olLoginGoAway'];
 							
-							$getTrxLoginGoAwayQ = get_option('xl_wplogin_goaway');
+							$getTrxLoginGoAwayQ = get_option('ol_wplogin_goaway');
 							if($getTrxLoginGoAwayQ === false) {
-								add_option('xl_wplogin_goaway', $xlLoginGoAway, '', 'no');
+								add_option('ol_wplogin_goaway', $olLoginGoAway, '', 'no');
 							} else {
-								update_option('xl_wplogin_goaway', $xlLoginGoAway, '', 'no');
+								update_option('ol_wplogin_goaway', $olLoginGoAway, '', 'no');
 							}
 							
-							/***************** XL Login Form *****************/
-							$xlLoginForm = $_POST['xlLoginForm'];
+							/***************** OL Login Form *****************/
+							$olLoginForm = $_POST['olLoginForm'];
 							
-							$getTrxLoginFormQ = get_option('xl_wplogin_form');
+							$getTrxLoginFormQ = get_option('ol_wplogin_form');
 							if($getTrxLoginFormQ === false) {
-								add_option('xl_wplogin_form', $xlLoginForm, '', 'no');
+								add_option('ol_wplogin_form', $olLoginForm, '', 'no');
 							} else {
-								update_option('xl_wplogin_form', $xlLoginForm, '', 'no');
+								update_option('ol_wplogin_form', $olLoginForm, '', 'no');
 							}
 							
-							/***************** XL Font-Awesome *****************/
-							$xlFontAwesome = $_POST['xlFontAwesome'];
+							/***************** OL Font-Awesome *****************/
+							$olFontAwesome = $_POST['olFontAwesome'];
 							
-							$getXlFontAwesomeQ = get_option('xl_font_awesome');
+							$getXlFontAwesomeQ = get_option('ol_font_awesome');
 							if($getXlFontAwesomeQ === false) {
-								add_option('xl_font_awesome', $xlFontAwesome, '', 'no');
+								add_option('ol_font_awesome', $olFontAwesome, '', 'no');
 							} else {
-								update_option('xl_font_awesome', $xlFontAwesome, '', 'no');
+								update_option('ol_font_awesome', $olFontAwesome, '', 'no');
 							}
 						}
 						
 						
-						$getTrxLoginGoAway = get_option('xl_wplogin_goaway');
-						$getTrxLoginForm = get_option('xl_wplogin_form');
-						$getXlFontAwesome = get_option('xl_font_awesome');
+						$getTrxLoginGoAway = get_option('ol_wplogin_goaway');
+						$getTrxLoginForm = get_option('ol_wplogin_form');
+						$getXlFontAwesome = get_option('ol_font_awesome');
 						?>
 						
-					<form name="xlGenSettingForm" method="post" action="" style="max-width:450px;">
+					<form name="olGenSettingForm" method="post" action="" style="max-width:450px;">
 						<table class="table-collapse full-width">
 							<tr>
 								<td width="60%" title="It will help you to hide the wp-login function for none admin user.">WP Login Goaway :</td>
 								<td width="40%" align="right">
-									<input type="radio" name="xlLoginGoAway" value="yes" <?php if($getTrxLoginGoAway == 'yes') { echo 'checked'; } ?>> Yes 
-									<input type="radio" name="xlLoginGoAway" value="no" <?php if($getTrxLoginGoAway == 'no') { echo 'checked'; } ?>> No
+									<input type="radio" name="olLoginGoAway" value="yes" <?php if($getTrxLoginGoAway == 'yes') { echo 'checked'; } ?>> Yes 
+									<input type="radio" name="olLoginGoAway" value="no" <?php if($getTrxLoginGoAway == 'no') { echo 'checked'; } ?>> No
 								</td>
 							</tr>
 							<tr>
-								<td title="It will help you to hide the wp-login function for none admin user.">Enable XL Login/Signup Form :</td>
+								<td title="It will help you to hide the wp-login function for none admin user.">Enable OL Login/Signup Form :</td>
 								<td align="right">
-									<input type="radio" name="xlLoginForm" value="yes" <?php if($getTrxLoginForm == 'yes') { echo 'checked'; } ?>> Yes 
-									<input type="radio" name="xlLoginForm" value="no" <?php if($getTrxLoginForm == 'no') { echo 'checked'; } ?>> No
+									<input type="radio" name="olLoginForm" value="yes" <?php if($getTrxLoginForm == 'yes') { echo 'checked'; } ?>> Yes 
+									<input type="radio" name="olLoginForm" value="no" <?php if($getTrxLoginForm == 'no') { echo 'checked'; } ?>> No
 								</td>
 							</tr>
 							<tr>
 								<td title="It will enable the self hosted font-awesome. Enable only if your current theme not supports font-awesome.">
-									Enable XL-Font-Awesome :
-									<span class="tips" title="Get Option: xl_font_awesome (Value: enable / disable)"></span>
+									Enable OL-Font-Awesome :
+									<span class="tips" title="Get Option: ol_font_awesome (Value: enable / disable)"></span>
 								</td>
 								<td align="right">
-									<input type="radio" name="xlFontAwesome" value="enable" <?php if($getXlFontAwesome == 'enable') { echo 'checked'; } ?>> Yes 
-									<input type="radio" name="xlFontAwesome" value="disable" <?php if($getXlFontAwesome == 'disable') { echo 'checked'; } ?>> No
+									<input type="radio" name="olFontAwesome" value="enable" <?php if($getXlFontAwesome == 'enable') { echo 'checked'; } ?>> Yes 
+									<input type="radio" name="olFontAwesome" value="disable" <?php if($getXlFontAwesome == 'disable') { echo 'checked'; } ?>> No
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2" align="right">
 									<hr class="margin-5 no-margin-rl" />
-									<input type="submit" name="xlGenSettingBtn" class="button button-primary button-large container-action-btn" value="Save">
+									<input type="submit" name="olGenSettingBtn" class="button button-primary button-large container-action-btn" value="Save">
 								</td>
 							</tr>
 						</table>
@@ -119,8 +119,8 @@ date_default_timezone_set("Asia/Kolkata");
 				<div class="row no-margin">
 					<div class="col col-left col1" style="width:75%;">
 						<h3 class="container-heading">
-							Email Settings (Supported to all XL Plugins)
-							<span class="tips" title=" &#10; Get Email Settings Data => Option Name: xl_email_settings (Returns Array) &#10; Array Values- &#10; company_name, &#10; sender_name, &#10; sender_email, &#10; sales_email, &#10; support_email, &#10; contact_number"></span>
+							Email Settings (Supported to all OL Plugins)
+							<span class="tips" title=" &#10; Get Email Settings Data => Option Name: ol_email_settings (Returns Array) &#10; Array Values- &#10; company_name, &#10; sender_name, &#10; sender_email, &#10; sales_email, &#10; support_email, &#10; contact_number"></span>
 						</h3>
 					</div>
 					<div class="col col-right col2" style="width:80px;">
@@ -133,8 +133,8 @@ date_default_timezone_set("Asia/Kolkata");
 					<?php
 						if(isset($_POST['emailDataBtn'])) {
 							
-							/***************** XL Login GoAway *****************/
-							$xlEmailSettings	= array(
+							/***************** OL Login GoAway *****************/
+							$olEmailSettings	= array(
 								'company_name'		=> $_POST["companyName"],
 								'website_title'		=> $_POST["websiteTitle"],
 								'sender_name'		=> $_POST["senderName"],
@@ -144,11 +144,11 @@ date_default_timezone_set("Asia/Kolkata");
 								'contact_number'	=> $_POST["contactNumber"]
 							);
 							
-							$getTrxEmailSettingsQ = get_option('xl_email_settings');
+							$getTrxEmailSettingsQ = get_option('ol_email_settings');
 							if($getTrxEmailSettingsQ === false) {
-								add_option('xl_email_settings', $xlEmailSettings, '', 'no');
+								add_option('ol_email_settings', $olEmailSettings, '', 'no');
 							} else {
-								update_option('xl_email_settings', $xlEmailSettings, '', 'no');
+								update_option('ol_email_settings', $olEmailSettings, '', 'no');
 							}
 							
 						}
@@ -161,7 +161,7 @@ date_default_timezone_set("Asia/Kolkata");
 						$supportEmail	= '';
 						$contactNumber	= '';
 							
-						$getTrxEmailSettings	= get_option('xl_email_settings');
+						$getTrxEmailSettings	= get_option('ol_email_settings');
 						if($getTrxEmailSettings !== false) {
 							$companyName	= $getTrxEmailSettings['company_name'];
 							$websiteTitle	= $getTrxEmailSettings['website_title'];
@@ -241,7 +241,7 @@ date_default_timezone_set("Asia/Kolkata");
 	<div class="container-div">	
 		<div class="row no-margin">
 			<div class="col col-left col1" style="width:25%;">
-				<h3 class="container-heading">XL Panel</h3>
+				<h3 class="container-heading">OL Panel</h3>
 			</div>
 			<div class="col col-right col2" style="width:80px;">
 				<!--button onclick="dispPopDiv()" class="button button-primary button-large container-action-btn">Add New</button-->
@@ -252,38 +252,38 @@ date_default_timezone_set("Asia/Kolkata");
 			
 		<div class="inner-container-div">
 		<?php
-				/************************************************ Get XL Panel Options and Form validation ************************************************/
+				/************************************************ Get OL Panel Options and Form validation ************************************************/
 				if(isset($_POST['panelEnableBtn'])) {
 					
-					$xlPanelOption = $_POST['panelEnable'];
-					$xlcBsJqOption = $_POST['xlcBsJq'];
+					$olPanelOption = $_POST['panelEnable'];
+					$olcBsJqOption = $_POST['olcBsJq'];
 					
 					
-					$getTrxPanelOptionQ = get_option('xl_panel_function');
+					$getTrxPanelOptionQ = get_option('ol_panel_function');
 					if($getTrxPanelOptionQ === false) {
-						add_option('xl_panel_function', $xlPanelOption, '', 'no');
+						add_option('ol_panel_function', $olPanelOption, '', 'no');
 					} else {
-						update_option('xl_panel_function', $xlPanelOption, '', 'no');
+						update_option('ol_panel_function', $olPanelOption, '', 'no');
 					}
 					
-					$getXlcBsJqOptionQ = get_option('xlc_panel_bsjq');
+					$getXlcBsJqOptionQ = get_option('olc_panel_bsjq');
 					if($getXlcBsJqOptionQ === false) {
-						add_option('xlc_panel_bsjq', $xlcBsJqOption, '', 'no');
+						add_option('olc_panel_bsjq', $olcBsJqOption, '', 'no');
 					} else {
-						update_option('xlc_panel_bsjq', $xlcBsJqOption, '', 'no');
+						update_option('olc_panel_bsjq', $olcBsJqOption, '', 'no');
 					}
 				}
 				
 				$panelEnableStatus	= '';
 				
-				$getTrxPanelOption = get_option('xl_panel_function');
-				$getXlcBsJqOption = get_option('xlc_panel_bsjq');
+				$getTrxPanelOption = get_option('ol_panel_function');
+				$getXlcBsJqOption = get_option('olc_panel_bsjq');
 				?>
 				
-			<form name="xlPanelForm" method="post" action="" style="max-width:450px;">
+			<form name="olPanelForm" method="post" action="" style="max-width:450px;">
 				<table class="table-collapse full-width">
 					<tr>
-						<td width="60%">Enable XL Panel :</td>
+						<td width="60%">Enable OL Panel :</td>
 						<td width="40%" align="right">
 							<input type="radio" name="panelEnable" value="enable" <?php if($getTrxPanelOption == 'enable') { echo 'checked'; } ?>> Enable 
 							<input type="radio" name="panelEnable" value="disable" <?php if($getTrxPanelOption == 'disable') { echo 'checked'; } ?>> Disable
@@ -292,8 +292,8 @@ date_default_timezone_set("Asia/Kolkata");
 					<tr>
 						<td width="60%">Enable Own Bootstrap &amp; jQuery :</td>
 						<td width="40%" align="right">
-							<input type="radio" name="xlcBsJq" value="enable" <?php if($getXlcBsJqOption == 'enable') { echo 'checked'; } ?>> Enable 
-							<input type="radio" name="xlcBsJq" value="disable" <?php if($getXlcBsJqOption == 'disable') { echo 'checked'; } ?>> Disable
+							<input type="radio" name="olcBsJq" value="enable" <?php if($getXlcBsJqOption == 'enable') { echo 'checked'; } ?>> Enable 
+							<input type="radio" name="olcBsJq" value="disable" <?php if($getXlcBsJqOption == 'disable') { echo 'checked'; } ?>> Disable
 						</td>
 					</tr>
 					<tr>
@@ -316,7 +316,7 @@ date_default_timezone_set("Asia/Kolkata");
 					<div class="col col-left col1" style="width:50%;">
 						<h3 class="container-heading">
 							Google Analytics Tracking 
-							<span class="tips" title="Check if Enable => Option Name: xl_google_analytics (Value: enable / disable) &#10; Get Tracking Code => Option Name: xl_google_analytics_code"></span>
+							<span class="tips" title="Check if Enable => Option Name: ol_google_analytics (Value: enable / disable) &#10; Get Tracking Code => Option Name: ol_google_analytics_code"></span>
 						</h3>
 					</div>
 					<div class="col col-right col2" style="width:80px;">
@@ -327,57 +327,57 @@ date_default_timezone_set("Asia/Kolkata");
 					
 				<div class="inner-container-div">
 				<?php
-					if(isset($_POST['xlGABtn'])) {
+					if(isset($_POST['olGABtn'])) {
 						
-						$xlGoogleAnalytics		= $_POST['xlGoogleAnalytics'];
-						$xlGoogleAnalyticsCode	= $_POST['xlGoogleAnalyticsCode'];
+						$olGoogleAnalytics		= $_POST['olGoogleAnalytics'];
+						$olGoogleAnalyticsCode	= $_POST['olGoogleAnalyticsCode'];
 						
-						$xlGoogleAnalyticsCode	= stripslashes($xlGoogleAnalyticsCode);
+						$olGoogleAnalyticsCode	= stripslashes($olGoogleAnalyticsCode);
 						
-						if(empty($xlGoogleAnalyticsCode)) {
-							$xlGoogleAnalytics	= "disable";
+						if(empty($olGoogleAnalyticsCode)) {
+							$olGoogleAnalytics	= "disable";
 						}
 						
-						$xlGoogleAnalyticsQ	 = get_option('xl_google_analytics');
-						$xlGoogleAnalyticsCodeQ = get_option('xl_google_analytics_code');
+						$olGoogleAnalyticsQ	 = get_option('ol_google_analytics');
+						$olGoogleAnalyticsCodeQ = get_option('ol_google_analytics_code');
 						
-						if($xlGoogleAnalyticsQ === false) {
-							add_option('xl_google_analytics', $xlGoogleAnalytics, '', 'no');
+						if($olGoogleAnalyticsQ === false) {
+							add_option('ol_google_analytics', $olGoogleAnalytics, '', 'no');
 						} else {
-							update_option('xl_google_analytics', $xlGoogleAnalytics, '', 'no');
+							update_option('ol_google_analytics', $olGoogleAnalytics, '', 'no');
 						}
 						
-						if($xlGoogleAnalyticsCodeQ === false) {
-							add_option('xl_google_analytics_code', $xlGoogleAnalyticsCode, '', 'no');
+						if($olGoogleAnalyticsCodeQ === false) {
+							add_option('ol_google_analytics_code', $olGoogleAnalyticsCode, '', 'no');
 						} else {
-							update_option('xl_google_analytics_code', $xlGoogleAnalyticsCode, '', 'no');
+							update_option('ol_google_analytics_code', $olGoogleAnalyticsCode, '', 'no');
 						}
 					}
 					
-					$xlGoogleAnalytics		= get_option('xl_google_analytics');
-					$xlGoogleAnalyticsCode	= get_option('xl_google_analytics_code');
+					$olGoogleAnalytics		= get_option('ol_google_analytics');
+					$olGoogleAnalyticsCode	= get_option('ol_google_analytics_code');
 					?>
 						
-					<form name="xlPanelForm" method="post" action="" style="max-width:450px;">
+					<form name="olPanelForm" method="post" action="" style="max-width:450px;">
 						<table class="table-collapse full-width">
 							<tr>
 								<td width="60%">Enable Google Analytics :</td>
 								<td width="40%" align="right">
-									<input type="radio" name="xlGoogleAnalytics" value="enable" <?php if($xlGoogleAnalytics == 'enable') { echo 'checked'; } ?>> Enable 
-									<input type="radio" name="xlGoogleAnalytics" value="disable" <?php if($xlGoogleAnalytics == 'disable') { echo 'checked'; } ?>> Disable
+									<input type="radio" name="olGoogleAnalytics" value="enable" <?php if($olGoogleAnalytics == 'enable') { echo 'checked'; } ?>> Enable 
+									<input type="radio" name="olGoogleAnalytics" value="disable" <?php if($olGoogleAnalytics == 'disable') { echo 'checked'; } ?>> Disable
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<br/>
 									<p class="no-margin"><b>Add your Tracking Code</b>:</p>
-									<textarea class="full-width" name="xlGoogleAnalyticsCode" rows="4"><?php echo $xlGoogleAnalyticsCode; ?></textarea>
+									<textarea class="full-width" name="olGoogleAnalyticsCode" rows="4"><?php echo $olGoogleAnalyticsCode; ?></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2" align="right">
 									<hr class="margin-5 no-margin-rl" />
-									<input type="submit" name="xlGABtn" class="button button-primary button-large container-action-btn" value="Save">
+									<input type="submit" name="olGABtn" class="button button-primary button-large container-action-btn" value="Save">
 								</td>
 							</tr>
 						</table>
@@ -393,7 +393,7 @@ date_default_timezone_set("Asia/Kolkata");
 					<div class="col col-left col1" style="width:50%;">
 						<h3 class="container-heading">
 							Google reCAPTCHA 
-							<span class="tips" title="Check if Enable => Option Name: xl_google_recaptcha (Value: enable / disable) &#10; Get Site Key => Option Name: xl_recaptcha_sitekey &#10; Get Secret Key => Option Name: xl_recaptcha_secretkey"></span>
+							<span class="tips" title="Check if Enable => Option Name: ol_google_recaptcha (Value: enable / disable) &#10; Get Site Key => Option Name: ol_recaptcha_sitekey &#10; Get Secret Key => Option Name: ol_recaptcha_secretkey"></span>
 						</h3>
 					</div>
 					<div class="col col-right col2" style="width:80px;">
@@ -404,72 +404,72 @@ date_default_timezone_set("Asia/Kolkata");
 					
 				<div class="inner-container-div">
 				<?php
-					if(isset($_POST['xlGrCBtn'])) {
+					if(isset($_POST['olGrCBtn'])) {
 						
-						$xlGoogleReCaptcha		= $_POST['xlGoogleReCaptcha'];
-						$xlRecaptchaSiteKey	= $_POST['xlRecaptchaSiteKey'];
-						$xlRecaptchaSecretKey	= $_POST['xlRecaptchaSecretKey'];
+						$olGoogleReCaptcha		= $_POST['olGoogleReCaptcha'];
+						$olRecaptchaSiteKey	= $_POST['olRecaptchaSiteKey'];
+						$olRecaptchaSecretKey	= $_POST['olRecaptchaSecretKey'];
 						
 						
-						if( empty($xlRecaptchaSiteKey) || empty($xlRecaptchaSecretKey) ) {
-							$xlGoogleReCaptcha	= "disable";
+						if( empty($olRecaptchaSiteKey) || empty($olRecaptchaSecretKey) ) {
+							$olGoogleReCaptcha	= "disable";
 						}
 						
-						$xlGoogleReCaptchaQ	= get_option('xl_google_recaptcha');
-						$xlRecaptchaSiteKeyQ 	= get_option('xl_recaptcha_sitekey');
-						$xlRecaptchaSecretKeyQ = get_option('xl_recaptcha_secretkey');
+						$olGoogleReCaptchaQ	= get_option('ol_google_recaptcha');
+						$olRecaptchaSiteKeyQ 	= get_option('ol_recaptcha_sitekey');
+						$olRecaptchaSecretKeyQ = get_option('ol_recaptcha_secretkey');
 						
-						if($xlGoogleReCaptchaQ === false) {
-							add_option('xl_google_recaptcha', $xlGoogleReCaptcha, '', 'no');
+						if($olGoogleReCaptchaQ === false) {
+							add_option('ol_google_recaptcha', $olGoogleReCaptcha, '', 'no');
 						} else {
-							update_option('xl_google_recaptcha', $xlGoogleReCaptcha, '', 'no');
+							update_option('ol_google_recaptcha', $olGoogleReCaptcha, '', 'no');
 						}
 						
-						if($xlRecaptchaSiteKeyQ === false) {
-							add_option('xl_recaptcha_sitekey', $xlRecaptchaSiteKey, '', 'no');
+						if($olRecaptchaSiteKeyQ === false) {
+							add_option('ol_recaptcha_sitekey', $olRecaptchaSiteKey, '', 'no');
 						} else {
-							update_option('xl_recaptcha_sitekey', $xlRecaptchaSiteKey, '', 'no');
+							update_option('ol_recaptcha_sitekey', $olRecaptchaSiteKey, '', 'no');
 						}
 						
-						if($xlRecaptchaSecretKeyQ === false) {
-							add_option('xl_recaptcha_secretkey', $xlRecaptchaSecretKey, '', 'no');
+						if($olRecaptchaSecretKeyQ === false) {
+							add_option('ol_recaptcha_secretkey', $olRecaptchaSecretKey, '', 'no');
 						} else {
-							update_option('xl_recaptcha_secretkey', $xlRecaptchaSecretKey, '', 'no');
+							update_option('ol_recaptcha_secretkey', $olRecaptchaSecretKey, '', 'no');
 						}
 					}
 					
-					$xlGoogleReCaptcha		= get_option('xl_google_recaptcha');
-					$xlRecaptchaSiteKey	= get_option('xl_recaptcha_sitekey');
-					$xlRecaptchaSecretKey	= get_option('xl_recaptcha_secretkey');
+					$olGoogleReCaptcha		= get_option('ol_google_recaptcha');
+					$olRecaptchaSiteKey	= get_option('ol_recaptcha_sitekey');
+					$olRecaptchaSecretKey	= get_option('ol_recaptcha_secretkey');
 					?>
 						
-					<form name="xlPanelForm" method="post" action="" style="max-width:450px;">
+					<form name="olPanelForm" method="post" action="" style="max-width:450px;">
 						<table class="table-collapse full-width">
 							<tr>
 								<td width="60%">Enable Google reCAPTCHA :</td>
 								<td width="40%" align="right">
-									<input type="radio" name="xlGoogleReCaptcha" value="enable" <?php if($xlGoogleReCaptcha == 'enable') { echo 'checked'; } ?>> Enable 
-									<input type="radio" name="xlGoogleReCaptcha" value="disable" <?php if($xlGoogleReCaptcha == 'disable') { echo 'checked'; } ?>> Disable
+									<input type="radio" name="olGoogleReCaptcha" value="enable" <?php if($olGoogleReCaptcha == 'enable') { echo 'checked'; } ?>> Enable 
+									<input type="radio" name="olGoogleReCaptcha" value="disable" <?php if($olGoogleReCaptcha == 'disable') { echo 'checked'; } ?>> Disable
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<br/>
 									<p class="no-margin"><b>Site Key</b>:</p>
-									<input type="text" class="full-width" name="xlRecaptchaSiteKey" value="<?php echo $xlRecaptchaSiteKey; ?>" placeholder="6LftjEEUAAAAAEELcXP8OvQl548JcZbCMbGfW16C"/>
+									<input type="text" class="full-width" name="olRecaptchaSiteKey" value="<?php echo $olRecaptchaSiteKey; ?>" placeholder="6LftjEEUAAAAAEELcXP8OvQl548JcZbCMbGfW16C"/>
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<br/>
 									<p class="no-margin"><b>Secret key</b>:</p>
-									<input type="text" class="full-width" name="xlRecaptchaSecretKey" value="<?php echo $xlRecaptchaSecretKey; ?>" placeholder="6LftjEEUAAAAANsBbhOl2cpVnTHcer-e-2xzxWtr"/>
+									<input type="text" class="full-width" name="olRecaptchaSecretKey" value="<?php echo $olRecaptchaSecretKey; ?>" placeholder="6LftjEEUAAAAANsBbhOl2cpVnTHcer-e-2xzxWtr"/>
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2" align="right">
 									<hr class="margin-5 no-margin-rl" />
-									<input type="submit" name="xlGrCBtn" class="button button-primary button-large container-action-btn" value="Save">
+									<input type="submit" name="olGrCBtn" class="button button-primary button-large container-action-btn" value="Save">
 								</td>
 							</tr>
 						</table>

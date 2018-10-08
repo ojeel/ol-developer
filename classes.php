@@ -5,14 +5,14 @@
  * This AJax login form works only with "Login With Ajax" plugin By "Marcus Sykes" | Plugin link: https://wordpress.org/plugins/login-with-ajax/
 */
 
-class xlAjaxLogin {
+class olAjaxLogin {
 	
 	var $loginRedirect;
 	
 	function __construct() {
 		if( is_page( 'checkout' ) ) {
-			$this->loginRedirect	= XL_CURRENT_URL;
-		} else if( current_user_can( 'xl_options' ) ) {
+			$this->loginRedirect	= OL_CURRENT_URL;
+		} else if( current_user_can( 'ol_options' ) ) {
 			$this->loginRedirect	= admin_url('index.php');
 		} else if( current_user_can( 'manage_options' ) ) {
 			
@@ -22,7 +22,7 @@ class xlAjaxLogin {
 			$this->loginRedirect	= DASHBOARD_URL;
 		} else {
 			
-			$this->loginRedirect	= XL_CURRENT_URL;
+			$this->loginRedirect	= OL_CURRENT_URL;
 		}
 	}
 	
@@ -49,7 +49,7 @@ class xlAjaxLogin {
 				$signupQuery	= 'signup';
 			}
 	?>
-		<div id="xl-login-block" class="xl-login-block">
+		<div id="ol-login-block" class="ol-login-block">
 				<ul class="nav nav-tabs nav-justified">
 					<li class="<?php if(empty($signupQuery)) { echo 'active'; } ?>"><a data-toggle="tab" href="#login-tab"><b>Login</b></a></li>
 					<li class="<?php if($signupQuery == 'signup') { echo 'active'; } ?>"><a data-toggle="tab" href="#signup-tab"><b>Signup</b></a></li>
@@ -63,7 +63,7 @@ class xlAjaxLogin {
 					<div id="signup-tab" class="tab-pane fade <?php if($signupQuery == 'signup') { echo 'in active'; } ?>">
 						<p class="please-signup">Please Signup Now</p>
 						<?php
-							echo do_shortcode('[xl_custom_registration]');
+							echo do_shortcode('[ol_custom_registration]');
 						?>
 					</div>
 				</div>
@@ -95,7 +95,7 @@ class xlAjaxLogin {
 		} else {
 			
 			?>
-			<div id="xl-login-block" class="xl-login-block">
+			<div id="ol-login-block" class="ol-login-block">
 				<div class="login-block-title">
 					<h3 class="login-title">Please Login</h3>
 				</div>
@@ -166,7 +166,7 @@ class Xl_User_Auth {
 			echo "Hello... You are Loggedin.";
 		} else {
 			?>
-			<div id="xl-login-block" class="xl-login-block">
+			<div id="ol-login-block" class="ol-login-block">
 				<div class="login-block-title">
 					<h3 class="login-title">Please Login</h3>
 				</div>
@@ -184,8 +184,8 @@ class Xl_User_Auth {
 }
 
 
-/* ******************************************************************** Class xlFileUploader ******************************************************************** */
-class xlFileUploader {
+/* ******************************************************************** Class olFileUploader ******************************************************************** */
+class olFileUploader {
 	
 	var $files;
 	var $upload_dir;

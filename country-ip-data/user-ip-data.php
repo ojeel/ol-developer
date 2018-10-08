@@ -59,7 +59,7 @@ class clientLocal {
 			$this->countryCode	= $this->ip_data->country->isoCode;
 		}
 		
-		$countryDataQ	= $wpdb->get_results("SELECT * FROM {$wpdb->prefix}xl_country_data WHERE countryCode = '{$this->countryCode}'");
+		$countryDataQ	= $wpdb->get_results("SELECT * FROM {$wpdb->prefix}ol_country_data WHERE countryCode = '{$this->countryCode}'");
 		if( ($wpdb->num_rows) == 1) {
 			foreach($countryDataQ as $countryData) {
 				$this->countryName		= $countryData->countryName;
@@ -106,7 +106,7 @@ class clientLocal {
 					
 					if($cRate > 0) {
 						$updateCurrencyRate	= $wpdb->update(
-							$wpdb->prefix . 'xl_country_data',
+							$wpdb->prefix . 'ol_country_data',
 							array(
 								'currencyRate'	=> $cRate,
 								'rateUpdatedOn'	=> date('Y-m-d H:i:s')
@@ -176,7 +176,7 @@ class clientLocal {
 		
 		if($from_Currency !== $to_Currency) {
 		
-			$gaFromCDataQ		= $wpdb->get_results("SELECT currencyRate FROM {$wpdb->prefix}xl_country_data WHERE currency = '{$from_Currency}' ORDER BY rateUpdatedOn DESC LIMIT 1");
+			$gaFromCDataQ		= $wpdb->get_results("SELECT currencyRate FROM {$wpdb->prefix}ol_country_data WHERE currency = '{$from_Currency}' ORDER BY rateUpdatedOn DESC LIMIT 1");
 			$gaFromCDataCount	= $wpdb->num_rows;
 			
 			if( $gaFromCDataCount == 1 ) {
@@ -185,7 +185,7 @@ class clientLocal {
 				}
 			}
 			
-			$gaToCDataQ		= $wpdb->get_results("SELECT currencyRate FROM {$wpdb->prefix}xl_country_data WHERE currency = '{$to_Currency}' ORDER BY rateUpdatedOn DESC LIMIT 1");
+			$gaToCDataQ		= $wpdb->get_results("SELECT currencyRate FROM {$wpdb->prefix}ol_country_data WHERE currency = '{$to_Currency}' ORDER BY rateUpdatedOn DESC LIMIT 1");
 			$gaToCDataCount	= $wpdb->num_rows;
 			
 			if( $gaToCDataCount == 1 ) {

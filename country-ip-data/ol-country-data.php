@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: XL Country Data
+ * Template Name: OL Country Data
  */ 
-$stylePath = XLDEV_PATH . "assets/styles/admin-style.php";
+$stylePath = OLDEV_PATH . "assets/styles/admin-style.php";
 include_once($stylePath);
 
 global $wpdb;
@@ -10,7 +10,7 @@ date_default_timezone_set("UTC");
 
 ?>
 <style>
-.xl-popup-container {
+.ol-popup-container {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -20,7 +20,7 @@ date_default_timezone_set("UTC");
 	z-index: 99998;
 	
 }
-.xl-popup-inner {
+.ol-popup-inner {
 	position: relative;
 	top: 10%;
 	width: 80%;
@@ -31,7 +31,7 @@ date_default_timezone_set("UTC");
 	background-color: #fff;
 	border-radius: 10px;
 }
-.xl-pop-close {
+.ol-pop-close {
 	position: absolute;
     top: 0;
     right: 0;
@@ -107,7 +107,7 @@ h1.pop-close-x {
 			
 			if(empty($fError)) {
 					
-				$existingDataQ	= $wpdb->get_results("SELECT id,countryCode FROM {$wpdb->prefix}xl_country_data WHERE countryCode = '{$ncCode}'");
+				$existingDataQ	= $wpdb->get_results("SELECT id,countryCode FROM {$wpdb->prefix}ol_country_data WHERE countryCode = '{$ncCode}'");
 				$existingDataCount	= $wpdb->num_rows;
 				if($existingDataCount >= 1) {
 					$popMessage = '<p class="error-msg">Country code: '. $ncCode .' ('. $ncName .') already exist.</p>';
@@ -119,7 +119,7 @@ h1.pop-close-x {
 				} else {
 				
 					$formDataInsert	= $wpdb->insert(
-						$wpdb->prefix . 'xl_country_data',
+						$wpdb->prefix . 'ol_country_data',
 						array(
 							'countryCode'	=> $ncCode,
 							'countryName'	=> $ncName,
@@ -169,7 +169,7 @@ h1.pop-close-x {
 			}
 		}
 			
-		$countryDataQuery = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}xl_country_data ORDER BY countryName ASC" );
+		$countryDataQuery = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}ol_country_data ORDER BY countryName ASC" );
 		$countryDataCount = $wpdb->num_rows;
 		
 		?>
@@ -213,8 +213,8 @@ h1.pop-close-x {
 						
 						$cLocalTimeNow	= date( 'd-M-Y h:i A', strtotime("+{$timeDiff} minutes") );
 						
-						$view_link		= "admin.php?page=xl-lms-single-view&lms-id=". $id;
-						$edit_link		= "admin.php?page=xl-lms-edit&lms-id=". $id;
+						$view_link		= "admin.php?page=ol-lms-single-view&lms-id=". $id;
+						$edit_link		= "admin.php?page=ol-lms-edit&lms-id=". $id;
 ?>
 						<tr>
 							<td class="as-td" align="center"><p class="no-margin as-label"><?php echo $csl; ?></p></td>
@@ -242,9 +242,9 @@ h1.pop-close-x {
 	</div>
 	
 	<!--************************************** Add New Popup ********************************************* -->
-	<div class="xl-popup-container" id="xl-popup-container" style="display:none;">
-		<div class="xl-popup-inner">
-			<div class="xl-pop-close" onclick="hidePopDiv()">
+	<div class="ol-popup-container" id="ol-popup-container" style="display:none;">
+		<div class="ol-popup-inner">
+			<div class="ol-pop-close" onclick="hidePopDiv()">
 				<h1 class="pop-close-x">X</h1>
 			</div>
 			
@@ -255,7 +255,7 @@ h1.pop-close-x {
 			}
 			?>
 			<form name="newTrainerForm" method="post" action=""  style="max-width:450px;margin:auto;">
-			<table class="xl-table full-width">
+			<table class="ol-table full-width">
 				<tr>
 					<td width="40%">Country Name<span class="red-star">*</span> :</td>
 					<td width="60%"><input type="text" name="countryName" class="full-width" value="<?php echo $ncName; ?>" placeholder="India" /></td>
@@ -355,9 +355,9 @@ h1.pop-close-x {
 	</div>
 	
 	<!--************************************** Add New Popup ********************************************* -->
-	<div class="xl-popup-container" id="xl-popmessage-container" style="display:none;">
-		<div class="xl-popup-inner">
-			<div class="xl-pop-close" onclick="hidePopDiv()">
+	<div class="ol-popup-container" id="ol-popmessage-container" style="display:none;">
+		<div class="ol-popup-inner">
+			<div class="ol-pop-close" onclick="hidePopDiv()">
 				<h1 class="pop-close-x">X</h1>
 			</div>
 			<div>
@@ -371,14 +371,14 @@ h1.pop-close-x {
 	
 	<script>
 		function dispPopDiv() {
-			document.getElementById('xl-popup-container').style.display = 'inherit';
+			document.getElementById('ol-popup-container').style.display = 'inherit';
 		}
 		function hidePopDiv() {
-			document.getElementById('xl-popup-container').style.display = 'none';
-			document.getElementById('xl-popmessage-container').style.display = 'none';
+			document.getElementById('ol-popup-container').style.display = 'none';
+			document.getElementById('ol-popmessage-container').style.display = 'none';
 		}
 		function dispPopMessageDiv() {
-			document.getElementById('xl-popmessage-container').style.display = 'inherit';
+			document.getElementById('ol-popmessage-container').style.display = 'inherit';
 		}
 		function resetOnSuccess() {
 			document.newTrainerForm.reset();

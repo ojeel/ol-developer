@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: XL Panel Index
+ * Template Name: OL Panel Index
  */
 
 if( ! defined( 'WPINC' ) ) {
 	die();
 }
 
-class xlPanel {
+class olPanel {
 	
 	var $panelId;
 	var $panelCap;
@@ -21,49 +21,49 @@ class xlPanel {
 		$this->contentDir	= $cdir;
 	}
 	
-	function xl_panel_logo_func() {
+	function ol_panel_logo_func() {
 		$logoOptionName	= $this->panelId . '_logo';
 		$get_panel_logo	= get_option($logoOptionName);
 		
 		if( ($get_panel_logo !== false) || ( !empty($get_panel_logo) ) ) {
-			$panelLogo = XL_UPLOAD_DIR_URL .'/'. $get_panel_logo;
+			$panelLogo = OL_UPLOAD_DIR_URL .'/'. $get_panel_logo;
 		} else {
-			$panelLogo = XLDEV_URL . "/xl-panel/img/panel-logo.png";
+			$panelLogo = OLDEV_URL . "/ol-panel/img/panel-logo.png";
 		}
 		return $panelLogo;
 	}
 	
-	function xl_dashboard() {
+	function ol_dashboard() {
 		
-		$getXlcBsJq = get_option('xl_panel_bsjq');
+		$getXlcBsJq = get_option('ol_panel_bsjq');
 		if( $getXlcBsJq !== 'disable' ) {
 		
 			/*** Latest compiled and minified CSS ***/
-			wp_enqueue_style( 'xlp_bootstrap_lcmcss', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
+			wp_enqueue_style( 'olp_bootstrap_lcmcss', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
 			
 			/*** FontAwesome ***/
-			wp_enqueue_style( 'xlp_fontawesome_css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+			wp_enqueue_style( 'olp_fontawesome_css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 			
 			/*** jQuery library ***/
-			wp_enqueue_script( 'xlp_google_jqlib', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' );
+			wp_enqueue_script( 'olp_google_jqlib', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' );
 			
 			/*** Latest compiled JavaScript ***/
-			wp_enqueue_script( 'xlp_bootstrap_lcjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' );
+			wp_enqueue_script( 'olp_bootstrap_lcjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' );
 		
 			/*** Google jqueryui for DatePicker ***/
-			wp_enqueue_style( 'xlp_style_DatePicker', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css' );
-			wp_enqueue_script( 'xlp_jquery_DatePicker', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js' );
+			wp_enqueue_style( 'olp_style_DatePicker', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css' );
+			wp_enqueue_script( 'olp_jquery_DatePicker', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js' );
 		}
 		
 		
 		/*** Xl Panel Custom CSS ***/
-		wp_enqueue_style( 'xlp_pccss', XLDEV_URL .'/xl-panel/styles/stylesheet.css' );
+		wp_enqueue_style( 'olp_pccss', OLDEV_URL .'/ol-panel/styles/stylesheet.css' );
 		
 		/*** Xl Panel Custom JS ***/
-		wp_enqueue_script( 'xlp_pcjs', XLDEV_URL .'/xl-panel/styles/script.js' );
+		wp_enqueue_script( 'olp_pcjs', OLDEV_URL .'/ol-panel/styles/script.js' );
 		
 		
-	$getXlPanelOption = get_option('xl_panel_function');
+	$getXlPanelOption = get_option('ol_panel_function');
 	
 	if( is_user_logged_in() ) {
 			
@@ -87,27 +87,27 @@ class xlPanel {
 			
 			date_default_timezone_set("Asia/Kolkata");
 			
-			echo '<div id="xl-panel-'. $this->panelId .'">';
+			echo '<div id="ol-panel-'. $this->panelId .'">';
 				
-				$profileAvatar	= XLDEV_URL . "/xl-panel/img/profile-avatar.png";
+				$profileAvatar	= OLDEV_URL . "/ol-panel/img/profile-avatar.png";
 				$siteUrl		= get_bloginfo('url');
 				
 ?>
-				<!-- ***************************************************** XL Loader *********************************************************** -->
-				<div id="xl-loader"></div>
+				<!-- ***************************************************** OL Loader *********************************************************** -->
+				<div id="ol-loader"></div>
 				
 				<!-- ***************************************************** Top Bar *********************************************************** -->
-				<div class="xl-container xl-panel-container">
-					<div class="xl-container-inner">
+				<div class="ol-container ol-panel-container">
+					<div class="ol-container-inner">
 					
 						<div class="row panel">
 							<div class="col-xs-4 col-sm-3 col-md-2 no-padding panel-col eq-height">
 								<div class="panel-logo">
 									<?php
-										$xl_panel_logo_func	= self::xl_panel_logo_func();
-										$xlPanelLogo	= apply_filters('xl_panel_logo', $xl_panel_logo_func );
+										$ol_panel_logo_func	= self::ol_panel_logo_func();
+										$olPanelLogo	= apply_filters('ol_panel_logo', $ol_panel_logo_func );
 									?>
-									<img src="<?php echo $xlPanelLogo; ?>" class="img-responsive" alt="">
+									<img src="<?php echo $olPanelLogo; ?>" class="img-responsive" alt="">
 								</div>
 										
 								<div class="nav-side-menu">
@@ -121,7 +121,7 @@ class xlPanel {
 									<div class="panel-usertitle">
 										<div class="panel-usertitle-name">
 <?php
-												$currentUser_info	= xl_current_user();
+												$currentUser_info	= ol_current_user();
 												$currentUser_Id		= $currentUser_info['userId'];
 												echo $currentUser_info['displayName'];
 ?>
@@ -143,18 +143,18 @@ class xlPanel {
 <?php
 										
 										// Navigation Data query from DB
-										$xlNavDataQ	= $wpdb->get_results("SELECT * FROM {$wpdb->prefix}xl_panel_nav WHERE panel_id = '{$this->panelId}' AND is_subnav = 'No' AND status = 'active' ORDER BY short_value ASC");
+										$olNavDataQ	= $wpdb->get_results("SELECT * FROM {$wpdb->prefix}ol_panel_nav WHERE panel_id = '{$this->panelId}' AND is_subnav = 'No' AND status = 'active' ORDER BY short_value ASC");
 											
 										if( ($wpdb->num_rows) >= 1) {
 											
-											foreach($xlNavDataQ as $xlNavData) {
-												$acp_nId	= $xlNavData->id;
-												$acp_nTitle	= $xlNavData->nav_title;
-												$acp_nSlug	= $xlNavData->nav_slug;
-												$acp_nIcon	= $xlNavData->nav_icon;
+											foreach($olNavDataQ as $olNavData) {
+												$acp_nId	= $olNavData->id;
+												$acp_nTitle	= $olNavData->nav_title;
+												$acp_nSlug	= $olNavData->nav_slug;
+												$acp_nIcon	= $olNavData->nav_icon;
 												
 												// Sub Menu Data query from DB
-												$xlSubNavDataQ	= $wpdb->get_results("SELECT * FROM {$wpdb->prefix}xl_panel_nav WHERE parent_id = '{$acp_nId}' AND status = 'active' ORDER BY short_value ASC");
+												$olSubNavDataQ	= $wpdb->get_results("SELECT * FROM {$wpdb->prefix}ol_panel_nav WHERE parent_id = '{$acp_nId}' AND status = 'active' ORDER BY short_value ASC");
 												if( ($wpdb->num_rows) == 0) {
 													echo '
 														<li>
@@ -172,10 +172,10 @@ class xlPanel {
 													</li>
 													<ul class="sub-menu collapse" id="'. $acp_nSlug .'">
 													';
-													foreach($xlSubNavDataQ as $xlSubNavData) {
-														$acp_snId		= $xlSubNavData->id;
-														$acp_snTitle	= $xlSubNavData->nav_title;
-														$acp_snSlug		= $xlSubNavData->nav_slug;
+													foreach($olSubNavDataQ as $olSubNavData) {
+														$acp_snId		= $olSubNavData->id;
+														$acp_snTitle	= $olSubNavData->nav_title;
+														$acp_snSlug		= $olSubNavData->nav_slug;
 														
 														echo '
 														<li class="sub-nav current_page"><a class="nav" href="'. add_query_arg( 'spg', $acp_snSlug, $this->panelUrl ) .'">'. $acp_snTitle .'</a></li>
@@ -203,13 +203,13 @@ class xlPanel {
 									if(get_query_var("spg")) {
 										$pageSlug	= get_query_var("spg");
 										
-										$xlPageDataQ	= $wpdb->get_results("SELECT page_title,page_src FROM {$wpdb->prefix}xl_panel_nav WHERE panel_id = '{$this->panelId}' AND nav_slug = '{$pageSlug}'");
+										$olPageDataQ	= $wpdb->get_results("SELECT page_title,page_src FROM {$wpdb->prefix}ol_panel_nav WHERE panel_id = '{$this->panelId}' AND nav_slug = '{$pageSlug}'");
 											
 										if( ($wpdb->num_rows) == 1) {
 											
-											foreach($xlPageDataQ as $xlPageData) {
-												$acp_pTitle	= $xlPageData->page_title;
-												$acp_pSrc	= $xlPageData->page_src;
+											foreach($olPageDataQ as $olPageData) {
+												$acp_pTitle	= $olPageData->page_title;
+												$acp_pSrc	= $olPageData->page_src;
 											}
 ?>
 											<div class="row title-bar no-margin">
@@ -248,9 +248,9 @@ class xlPanel {
 				</div>
 				
 				<!-- ******************************************************** Panel Outer contents ******************************************************** -->
-				<div class="xl-outer-panel">
+				<div class="ol-outer-panel">
 					<?php
-						do_action('xl_outer_panel');
+						do_action('ol_outer_panel');
 					?>
 				</div>
 				
@@ -266,9 +266,9 @@ class xlPanel {
 					<?php
 				} else {
 					if($pageSlug != '') {
-						$xlPageTtlQ	= $wpdb->get_results("SELECT page_title FROM {$wpdb->prefix}xl_panel_nav WHERE panel_id = '{$this->panelId}' AND nav_slug = '{$pageSlug}'");
-						foreach($xlPageTtlQ as $xlPageTtl) {
-							$docTitle	= $xlPageTtl->page_title;
+						$olPageTtlQ	= $wpdb->get_results("SELECT page_title FROM {$wpdb->prefix}ol_panel_nav WHERE panel_id = '{$this->panelId}' AND nav_slug = '{$pageSlug}'");
+						foreach($olPageTtlQ as $olPageTtl) {
+							$docTitle	= $olPageTtl->page_title;
 						}
 					} else {
 						$docTitle	= "Dashboard";
@@ -283,13 +283,13 @@ class xlPanel {
 			echo '</div>';
 		}
 		} else {
-			echo '<p class="error-msg">Error...!<br>XL Panel is not Enabled.</p>';
+			echo '<p class="error-msg">Error...!<br>OL Panel is not Enabled.</p>';
 		}
 	} else {
-		echo '<div class="xl-login-div">';
+		echo '<div class="ol-login-div">';
 		
-			$xlLogin		= new xlAjaxLogin;
-			echo $xlLogin->login();
+			$olLogin		= new olAjaxLogin;
+			echo $olLogin->login();
 			
 		echo '</div>';
 	}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: XL AJAX Process
+ * Template Name: OL AJAX Process
 */
 
 /*
@@ -11,13 +11,13 @@ include(  $getWpload );
 date_default_timezone_set("Asia/Kolkata");
 
 /* ******************** Action hook To process AJAX Request from Plugins ******************** */
-do_action( 'xl_ajax_process' );
+do_action( 'olajax_process' );
 
 
 
 /* ****************************** Some AJAX Request Processing for this Plugin Only ****************************** */
 
-/* ********** XL User Login Authentication ************* */
+/* ********** OL User Login Authentication ************* */
 if($_GET["action"] == "userLoginAuth") {
 	$username	= $_POST["username"];
 	$password	= $_POST["pwd"];

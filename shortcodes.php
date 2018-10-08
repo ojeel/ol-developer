@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: XL Shortcodes
+ * Template Name: OL Shortcodes
  */
 
 if ( ! defined( 'WPINC' ) ) {
@@ -12,22 +12,22 @@ if ( ! defined( 'WPINC' ) ) {
  * Orders and Checkout
 */
 
-/****************************************************************** XL AJAX LOGIN ************************************************************************/
+/****************************************************************** OL AJAX LOGIN ************************************************************************/
 
 
-$getTrxLoginForm = get_option('xl_wplogin_form');
+$getTrxLoginForm = get_option('ol_wplogin_form');
 if($getTrxLoginForm == "yes") {
-	// XL AJAX LOGIN ONLY
-	function xl_ajax_login() {
-		$xlAjax_Login	= new xlAjaxLogin;
-		return $xlAjax_Login->login();
+	// OL AJAX LOGIN ONLY
+	function ol_ajax_login() {
+		$olAjax_Login	= new olAjaxLogin;
+		return $olAjax_Login->login();
 	}
-	add_shortcode( 'xl-ajax-login','xl_ajax_login' );
+	add_shortcode( 'ol-ajax-login','ol_ajax_login' );
 
-	// XL AJAX LOGIN SIGNUP
-	function xl_ajax_login_signup() {
-		$xlAjax_Login	= new xlAjaxLogin;
-		return $xlAjax_Login->login_signup();
+	// OL AJAX LOGIN SIGNUP
+	function ol_ajax_login_signup() {
+		$olAjax_Login	= new olAjaxLogin;
+		return $olAjax_Login->login_signup();
 	}
-	add_shortcode( 'xl-ajax-login-signup','xl_ajax_login_signup' );
+	add_shortcode( 'ol-ajax-login-signup','ol_ajax_login_signup' );
 }

@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: XL Panel Option
+ * Template Name: OL Panel Option
  */ 
-$stylePath = XLDEV_PATH . "assets/styles/admin-style.php";
+$stylePath = OLDEV_PATH . "assets/styles/admin-style.php";
 include_once($stylePath);
 
 if ( ! defined( 'WPINC' ) ) {
@@ -19,7 +19,7 @@ date_default_timezone_set("Asia/Kolkata");
 	<div class="container-div">
 		<div class="row">
 			<div class="col col-left col1" style="width:45%;">
-				<h1 class="container-heading">XL Panel Option</h1>
+				<h1 class="container-heading">OL Panel Option</h1>
 			</div>
 			<div class="col col-left col1" style="width:45%;">
 			</div>
@@ -33,7 +33,7 @@ date_default_timezone_set("Asia/Kolkata");
 		
 		<div class="inner-container-div">
 			<?php
-				$panelOptionUrl	= admin_url('admin.php?page=xl-panel-option');
+				$panelOptionUrl	= admin_url('admin.php?page=ol-panel-option');
 				$qpage	= '';
 				if(isset($_GET["qpage"])) {
 					$qpage	= $_GET["qpage"];
@@ -110,7 +110,7 @@ date_default_timezone_set("Asia/Kolkata");
 				
 				if(empty($errorMsg)) {
 					$insertNavData	= $wpdb->insert(
-						$wpdb->prefix .'xl_panel_nav',
+						$wpdb->prefix .'ol_panel_nav',
 						array(
 							'panel_id' 		=> $panel_id,
 							'nav_title' 	=> $nav_title,
@@ -180,20 +180,20 @@ date_default_timezone_set("Asia/Kolkata");
 						<?php
 						// Get Live Courses List
 						
-						$xlNavDataQ = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}xl_panel_nav ORDER BY panel_id,id DESC;");
+						$olNavDataQ = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}ol_panel_nav ORDER BY panel_id,id DESC;");
 						
 						if( ($wpdb->num_rows) > 0 ) {
 							$sln	= 1;
-							foreach($xlNavDataQ as $xlNavData) {
-								$navId		= $xlNavData->id;
-								$panelId	= $xlNavData->panel_id;
-								$navTitle	= $xlNavData->nav_title;
-								$navSlug	= $xlNavData->nav_slug;
-								$status		= $xlNavData->status;
-								$isSubnav	= $xlNavData->is_subnav;
-								$parentId	= $xlNavData->parent_id;
-								$shortVal	= $xlNavData->short_value;
-								$pageSrc	= $xlNavData->page_src;
+							foreach($olNavDataQ as $olNavData) {
+								$navId		= $olNavData->id;
+								$panelId	= $olNavData->panel_id;
+								$navTitle	= $olNavData->nav_title;
+								$navSlug	= $olNavData->nav_slug;
+								$status		= $olNavData->status;
+								$isSubnav	= $olNavData->is_subnav;
+								$parentId	= $olNavData->parent_id;
+								$shortVal	= $olNavData->short_value;
+								$pageSrc	= $olNavData->page_src;
 								?>
 								<tr>
 									<td class="" align="center"><?php echo $navId; ?></td>
@@ -228,9 +228,9 @@ date_default_timezone_set("Asia/Kolkata");
 		</div><!-- inner-container-div -->
 		
 		<!--************************************** Add New Popup ********************************************* -->
-		<div class="xl-popup-container" id="xl-popup-container" style="display:none;">
-			<div class="xl-popup-inner">
-				<div class="xl-pop-close" onclick="hidePopDiv()">
+		<div class="ol-popup-container" id="ol-popup-container" style="display:none;">
+			<div class="ol-popup-inner">
+				<div class="ol-pop-close" onclick="hidePopDiv()">
 					<h1 class="pop-close-x">X</h1>
 				</div>
 				
@@ -241,7 +241,7 @@ date_default_timezone_set("Asia/Kolkata");
 				}
 				?>
 				<form id="newNavForm" name="newNavForm" method="post" action=""  style="max-width:650px;margin:auto;">
-				<table class="xl-table full-width">
+				<table class="ol-table full-width">
 					<tr>
 						<th width="16.666%"></th>
 						<th width="16.666%"></th>
@@ -253,7 +253,7 @@ date_default_timezone_set("Asia/Kolkata");
 					<tr>
 						<td colspan="2">
 							<p class="no-margin-bottom bold">Panel Id<span class="red-star">*</span> :</p>
-							<input type="text" name="panel_id" class="full-width" value="<?php echo $panel_id; ?>" placeholder="xlacp" />
+							<input type="text" name="panel_id" class="full-width" value="<?php echo $panel_id; ?>" placeholder="olacp" />
 						</td>
 						<td colspan="2">
 							<p class="no-margin-bottom bold">Nav Title<span class="red-star">*</span> :</p>
@@ -308,9 +308,9 @@ date_default_timezone_set("Asia/Kolkata");
 		</div>
 		
 		<!--************************************** Add New Popup ********************************************* -->
-		<div class="xl-popup-container" id="xl-popmessage-container" style="display:none;">
-			<div class="xl-popup-inner">
-				<div class="xl-pop-close" onclick="hidePopDiv()">
+		<div class="ol-popup-container" id="ol-popmessage-container" style="display:none;">
+			<div class="ol-popup-inner">
+				<div class="ol-pop-close" onclick="hidePopDiv()">
 					<h1 class="pop-close-x">X</h1>
 				</div>
 				<div>
@@ -323,14 +323,14 @@ date_default_timezone_set("Asia/Kolkata");
 	
 		<script>
 			function addNewForm() {
-				document.getElementById('xl-popup-container').style.display = 'inherit';
+				document.getElementById('ol-popup-container').style.display = 'inherit';
 			}
 			function hidePopDiv() {
-				document.getElementById('xl-popup-container').style.display = 'none';
-				document.getElementById('xl-popmessage-container').style.display = 'none';
+				document.getElementById('ol-popup-container').style.display = 'none';
+				document.getElementById('ol-popmessage-container').style.display = 'none';
 			}
 			function dispPopMessageDiv() {
-				document.getElementById('xl-popmessage-container').style.display = 'inherit';
+				document.getElementById('ol-popmessage-container').style.display = 'inherit';
 			}
 			function resetOnSuccess() {
 				$('#newNavForm')[0].reset();

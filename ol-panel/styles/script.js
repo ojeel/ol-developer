@@ -1,6 +1,6 @@
-// XL Date Picker
+// OL Date Picker
 $(function() {
-	$('.xlDate').datepicker({
+	$('.olDate').datepicker({
 		dateFormat: 'yy-mm-dd',
 		changeMonth: true,
 		changeYear: true,
@@ -53,11 +53,11 @@ $(document).ready(function () {
 	});
 });
 
-// XL Loader Script
+// OL Loader Script
 document.onreadystatechange = function () {
 	var state = document.readyState
 	if (state == 'complete') {
 		document.getElementById('interactive');
-		document.getElementById('xl-loader').style.visibility="hidden";
+		document.getElementById('ol-loader').style.visibility="hidden";
 	}
 }

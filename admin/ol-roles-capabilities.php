@@ -1,32 +1,32 @@
 <?php
 /**
- * Template Name: XL Roles and Capabilities
+ * Template Name: OL Roles and Capabilities
  */
 
 /************************************************************
- *				Create New Role XL Admin if Not exist
+ *				Create New Role OL Admin if Not exist
  *				Run this function only once
  ************************************************************/
 
-if( get_role( 'xl_admin' ) === null ) {
+if( get_role( 'ol_admin' ) === null ) {
 	$result = add_role(
-				'xl_admin',
-				__( 'XL Admin' ),
+				'ol_admin',
+				__( 'OL Admin' ),
 				array( 
 					'read'					=> true,
 					'level_0'				=> true
 				)
 			);
 	if ( null !== $result ) {
-		echo 'Yay! New role "xl_admin" created!';
+		echo 'Yay! New role "ol_admin" created!';
 	}
 }
 
 
 /* ************************************************************************** Add Wordpress Caps ******************************************************************************* */
-function add_xl_system_caps() {
+function add_ol_system_caps() {
     // gets the roles
-    $role_sys_1 = get_role( 'xl_admin' );
+    $role_sys_1 = get_role( 'ol_admin' );
 	
     // would allow the above roles to access the following capabilities
 	$tr_sys_caps = array(
@@ -50,19 +50,19 @@ function add_xl_system_caps() {
 		$role_sys_1->add_cap( $tr_sys_cap );
 	}
 }
-add_action( 'admin_init', 'add_xl_system_caps');
+add_action( 'admin_init', 'add_ol_system_caps');
 
 /* ************************************************************************** Add Custom Caps ******************************************************************************* */
-function add_xl_custom_caps() {
+function add_ol_custom_caps() {
     // gets the roles
     $role_1 = get_role( 'administrator' );
-	$role_2 = get_role( 'xl_admin' );
+	$role_2 = get_role( 'ol_admin' );
 	
     // would allow the above roles to access the following capabilities
-	$tr_caps = array( 'xl_options', 'xl_settings', 'xl_country_data', 'xl_acp_access' );
+	$tr_caps = array( 'ol_options', 'ol_settings', 'ol_country_data', 'ol_acp_access' );
 	foreach($tr_caps as $tr_cap) {
 		$role_1->add_cap( $tr_cap );
 		$role_2->add_cap( $tr_cap );
 	}
 }
-add_action( 'admin_init', 'add_xl_custom_caps');
+add_action( 'admin_init', 'add_ol_custom_caps');
