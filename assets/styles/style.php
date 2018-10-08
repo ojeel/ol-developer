@@ -178,10 +178,10 @@ p.edit-link, .edit-link {
 
 
 /* ************************************************************ Default **************************************************************/
-.xl-container {
+.ol-container {
 	width: 100%;
 }
-.xl-container-inner {
+.ol-container-inner {
 	width: 100%;
 	padding: 0;
 	margin: 0 auto;
@@ -288,7 +288,7 @@ p.inputLabel {
     text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
 }
 
-#xl-btn {
+#ol-btn {
 	color: #fff;
     font-weight: 600;
     width: 100%;
@@ -328,7 +328,7 @@ p.inputLabel {
 	background: -moz-linear-gradient(#ed5565, #ca4654, #ed5565); /* For Firefox 3.6 to 15 */
     box-shadow: 1px 1px 1px #7b7b7b;
 }
-#xl-btn:hover {
+#ol-btn:hover {
     background-color: #345da7
 }
 

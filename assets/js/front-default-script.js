@@ -1,10 +1,10 @@
 
-/* **************************************** XL Modal - Popup ******************************************/
-function dispXlModal(id) {
+/* **************************************** OL Modal - Popup ******************************************/
+function dispOlModal(id) {
 	document.getElementById(id).style.display = 'inherit';
 	document.getElementById(id).style.zIndex = '99998';
 }
-function hideXlModal(id) {
+function hideOlModal(id) {
 	document.getElementById(id).style.display = 'none';
 	document.getElementById(id).style.zIndex = '-99998';
 }
@@ -48,7 +48,7 @@ $( document ).ready(function() {
 			var dqFrmData = new FormData(userLoginForm);
 			
 			$.ajax({
-				url: xl_urls.xl_ajax_uri + "?action=userLoginAuth",
+				url: ol_urls.ol_ajax_uri + "?action=userLoginAuth",
 				data: dqFrmData,
 				type: 'POST',
 				processData: false,

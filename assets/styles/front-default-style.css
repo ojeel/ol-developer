@@ -126,7 +126,7 @@ a:hover {
     margin: 10px 0 0px !important;
 }
 
-#xl-loader {
+#ol-loader {
     width:100%;
 	height: 100%;
     position: fixed;
@@ -134,11 +134,11 @@ a:hover {
     background:url('../img/loading.gif') no-repeat center center rgba(0,0,0,0.9);
 }
 
-.xl-link, .xl-link-q {
+.ol-link, .ol-link-q {
 	cursor: pointer;
 	text-decoration: underline dotted green;
 }
-.xl-link-q:after {
+.ol-link-q:after {
     content: "\003F";
     margin-left: 5px;
     cursor: pointer;
@@ -159,7 +159,7 @@ span.pointer:hover {
 	text-decoration: underline;
 }
 
-.xl-box-shadow {
+.ol-box-shadow {
 	box-shadow: 0 0 5px #888;
 }
 
@@ -388,7 +388,7 @@ textarea {
 }
 
 
-table.xl-form-table td {
+table.ol-form-table td {
 	border: 1px solid #ccc;
 	padding: 2px 4px;
 	border-collapse: collapse;
@@ -412,7 +412,7 @@ table.form-table span {
 
 /*
  * Page preloader while processing request
- * The function located at function.php page in xlc-developer plugin
+ * The function located at function.php page in olc-developer plugin
 */
 #page-preloader {
     display: block;
@@ -478,7 +478,7 @@ table.form-table span {
 button.pointer, .pointer {
 	cursor: pointer;
 }
-.xl-btn {
+.ol-btn {
 	color: #fff;
     width: 100%;
     border: 1px solid #5aa1e3;
@@ -487,7 +487,7 @@ button.pointer, .pointer {
 	border-radius: 5px;
     background-color: #5aa1e3;
 }
-.xl-btn:hover {
+.ol-btn:hover {
 	text-shadow: 1px 1px 2px #464646;
     background-color: #5091ce;
 }
@@ -613,14 +613,14 @@ input.btn-modern:hover, input.btn-modern:focus, input.btn-modern:active {
 	background: -moz-linear-gradient(#ed5565, #ca4654, #ed5565); /* For Firefox 3.6 to 15 */
     box-shadow: 1px 1px 1px #7b7b7b;
 }
-#xl-btn:hover {
+#ol-btn:hover {
     background-color: #345da7
 }
 
 .btn-blue:hover,	.btn-blue:focus,	.btn-blue:active,
 .btn-yellow:hover,	.btn-yellow:focus,	.btn-yellow:active,
 .btn-red:hover,		.btn-red:focus,		.btn-red:active,
-.xl-btn:hover,		.xl-btn:focus,		.xl-btn:active
+.ol-btn:hover,		.ol-btn:focus,		.ol-btn:active
 {
 	padding: 3px 7px !important;
 	border-width: 1px !important;
@@ -628,7 +628,7 @@ input.btn-modern:hover, input.btn-modern:focus, input.btn-modern:active {
 	line-height: 16px !important;
 }
 
-.xl-sm-btn {
+.ol-sm-btn {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px !important;
     color: #fff !important;
@@ -637,15 +637,15 @@ input.btn-modern:hover, input.btn-modern:focus, input.btn-modern:active {
     border-radius: 3px !important;
 	cursor: pointer !important;
 }
-.xl-sm-btn:hover {
+.ol-sm-btn:hover {
 	background: #006a94;
 }
-.xl-sm-btn:focus, .xl-sm-btn:active {
+.ol-sm-btn:focus, .ol-sm-btn:active {
 	text-shadow: 1px 2px 1px #ccc;
 	box-shadow: inset 2px 2px 1px 1px #054f6d;
 }
 
-.xl-sm-red-btn {
+.ol-sm-red-btn {
 	font-size: 14px !important;
 	line-height: 16px;
     color: #fff !important;
@@ -655,10 +655,10 @@ input.btn-modern:hover, input.btn-modern:focus, input.btn-modern:active {
     border-radius: 3px !important;
 	cursor: pointer !important;
 }
-.xl-sm-red-btn:hover {
+.ol-sm-red-btn:hover {
 	text-shadow: 2px 2px 5px #000;
 }
-.xl-sm-red-btn:active {
+.ol-sm-red-btn:active {
 	box-shadow: inset 2px 2px 6px 0px #6d0f0d;
 }
 
@@ -698,8 +698,8 @@ input.btn-modern:hover, input.btn-modern:focus, input.btn-modern:active {
 /* *  STYLE 1 */#style-bar::-webkit-scrollbar-track{	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);	border-radius: 10px;	background-color: #F5F5F5;}#style-bar::-webkit-scrollbar{	width: 12px;	background-color: transparent;}#style-bar::-webkit-scrollbar-thumb{	border-radius: 10px;	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);	background-color: #555;}
 
 
-/******************************************************** XL Popups ***************************************************************************/
-.xl-popup-container, .xl-modal-container {
+/******************************************************** OL Popups ***************************************************************************/
+.ol-popup-container, .ol-modal-container {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -711,7 +711,7 @@ input.btn-modern:hover, input.btn-modern:focus, input.btn-modern:active {
 	z-index: -99998;
 	
 }
-.xl-popup-inner, .xl-modal-inner {
+.ol-popup-inner, .ol-modal-inner {
 	position: relative;
 	top: 15%;
 	height: auto;
@@ -723,7 +723,7 @@ input.btn-modern:hover, input.btn-modern:focus, input.btn-modern:active {
 	border: 2px solid #bb8039;
 	border-radius: 5px;
 }
-.xl-pop-close, .xl-modal-close {
+.ol-pop-close, .ol-modal-close {
 	position: absolute;
     top: 0;
     right: 0;
@@ -747,17 +747,17 @@ h1.pop-close-x, h1.modal-close-x {
 
 
 /***************************************************** Nav Tabs ***************************************************************/
-.xl-tabs-container {
+.ol-tabs-container {
 	width: 100%;
 	margin: 10px auto 20px;
 }
-.xl-nav-tabs {
+.ol-nav-tabs {
 	padding-right: 2px;
 }
 .empty-nav {
 	border-bottom: 1px solid #ccc;
 }
-.xl-nav-tabs a:link {
+.ol-nav-tabs a:link {
 	text-decoration: none !important;
 }
 .active-nav, .inactive-nav, .empty-nav {
@@ -781,20 +781,20 @@ h1.pop-close-x, h1.modal-close-x {
 	font-size: 16px !important;
 	margin: 0 auto !important;
 }
-.xl-tab-contents {
+.ol-tab-contents {
     padding: 10px 0;
 }
 /******************************************************** Ajax Login Box ***************************************************************************/
 
-.xl-login-div {
+.ol-login-div {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	background: url('../img/xl-login-div-bg.jpg') center center no-repeat !important;
+	background: url('../img/ol-login-div-bg.jpg') center center no-repeat !important;
 	background-size: cover !important;
 }
 
-.xl-login-block {
+.ol-login-block {
 	width: 100%;
 	max-width: 350px;
 	position: absolute;
@@ -848,27 +848,27 @@ h3.register-title {
 	width: 100% !important;
 }
 
-#xl-login-block a:link {
+#ol-login-block a:link {
 	color: inherit;
 }
-#xl-login-block input[type="text"],
-#xl-login-block input[type=password] {
+#ol-login-block input[type="text"],
+#ol-login-block input[type=password] {
 	width: 100%;
 	height: 30px;
 	border-radius: 0;
 	font-family: "Open Sans" sans-serif;
 }
 
-#xl-login-block label {
+#ol-login-block label {
 	font-family: "Open Sans" sans-serif;
 	font-size: 14px;
 }
 
-#xl-login-block .xua td {
+#ol-login-block .xua td {
     padding-top: 2px !important;
 }
 
-#xl-login-block input[type=submit] {
+#ol-login-block input[type=submit] {
     padding: 11px 23px;
     line-height: 16px;
     font-size: 13px;
@@ -887,46 +887,46 @@ h3.register-title {
     -o-transition: all .2s;
     -webkit-border-radius: 2px;
 }
-#xl-login-block input[type=submit]:hover {
+#ol-login-block input[type=submit]:hover {
 	background: #3fa000 !important;
 }
 
-#xl-login-block td.xua-username-label,
-#xl-login-block td.xua-password-label,
-#xl-login-block td.xua-submit-links {
+#ol-login-block td.xua-username-label,
+#ol-login-block td.xua-password-label,
+#ol-login-block td.xua-submit-links {
 	padding-left: 10px;
 }
 
-#xl-login-block td.xua-username-label label,
-#xl-login-block td.xua-password-label label {
+#ol-login-block td.xua-username-label label,
+#ol-login-block td.xua-password-label label {
 	line-height: 20px;
     padding-bottom: 15px;
 	margin-bottom: 0;
 }
 
-#xl-login-block td.xua-username-input,
-#xl-login-block td.xua-password-input {
+#ol-login-block td.xua-username-input,
+#ol-login-block td.xua-password-input {
     padding-right: 10px;
     padding-bottom: 15px;
 }
-#xl-login-block input#rememberme {
+#ol-login-block input#rememberme {
 	margin-top: 0;
 }
 
-#xl-login-block td.xua-submit-button {
+#ol-login-block td.xua-submit-button {
 	text-align: right !important;
 	padding-right: 10px;
 }
 
 
-#xl-login-block .nav-tabs.nav-justified>.active>a,
-#xl-login-block .nav-tabs.nav-justified>.active>a:focus,
-#xl-login-block .nav-tabs.nav-justified>.active>a:hover {
+#ol-login-block .nav-tabs.nav-justified>.active>a,
+#ol-login-block .nav-tabs.nav-justified>.active>a:focus,
+#ol-login-block .nav-tabs.nav-justified>.active>a:hover {
 	border: 0 !important;
 }
 
 @media (min-width: 768px) {
-	#xl-login-block .nav-tabs.nav-justified>.active>a, #xl-login-block .nav-tabs.nav-justified>.active>a:focus, #xl-login-block .nav-tabs.nav-justified>.active>a:hover {
+	#ol-login-block .nav-tabs.nav-justified>.active>a, #ol-login-block .nav-tabs.nav-justified>.active>a:focus, #ol-login-block .nav-tabs.nav-justified>.active>a:hover {
 		border-bottom-color: #4bbd02 !important;
 		border-bottom: 1px solid #4bbd02 !important;
 	}

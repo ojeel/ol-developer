@@ -8,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script>
 	jQuery(document).ready(function(){
-		$('.xlDate').datepicker({
+		$('.olDate').datepicker({
 			dateFormat: 'yy-mm-dd',
 			changeMonth: true,
 			changeYear: true,

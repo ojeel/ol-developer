@@ -192,12 +192,12 @@ button.pointer, .pointer {
 	cursor: pointer;
 }
 
-.xl-btn-div {
+.ol-btn-div {
 	width: 100px;
 	padding: 15px 0;
 }
 
-#xl-btn {
+#ol-btn {
 	color: #fff;
     font-weight: 600;
     width: 100%;
@@ -241,7 +241,7 @@ button.pointer, .pointer {
     box-shadow: 1px 1px 1px #7b7b7b;
 }
 
-#xl-btn:hover {
+#ol-btn:hover {
     background-color: #345da7
 }
 
@@ -251,27 +251,27 @@ p.field-label {
 	padding-left: 5px;
 }
 
-/**************** xl-table ************************/
-.xl-table {
+/**************** ol-table ************************/
+.ol-table {
 	border-collapse: collapse;
 	table-layout: fixed !important;
 }
-table.xl-table tr#tr-header th {
+table.ol-table tr#tr-header th {
 	padding: 5px 2px !important;
 	border: 1px solid #cecccc;
 }
-table.xl-table tr:nth-child(even) {
+table.ol-table tr:nth-child(even) {
 	background-color: #fbfbfb;
 }
 
-table.xl-table tr:nth-child(odd) {
+table.ol-table tr:nth-child(odd) {
 	background-color: #f3f3f3;
 }
 
-.xl-table tr#tr-header {
+.ol-table tr#tr-header {
 	background-color: #eaeaea !important;
 }
-.xl-table td {
+.ol-table td {
 	border: 1px solid #eaeaea;
 }
 
@@ -391,7 +391,7 @@ table.data-list-table tr:nth-child(odd) {
 }
 
 /******************************************************* POPUPS **********************************************************/
-.xl-popup-container {
+.ol-popup-container {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -401,7 +401,7 @@ table.data-list-table tr:nth-child(odd) {
 	z-index: 99998;
 	
 }
-.xl-popup-inner {
+.ol-popup-inner {
 	position: relative;
 	top: 10%;
 	width: 80%;
@@ -412,7 +412,7 @@ table.data-list-table tr:nth-child(odd) {
 	background-color: #fff;
 	border-radius: 10px;
 }
-.xl-pop-close {
+.ol-pop-close {
 	position: absolute;
     top: 0;
     right: 0;
