@@ -11,5 +11,3 @@ Version: 1.0
 Author: Mostafijur Rahaman
 
 Author URI: http://mostafijur.in
-
-Changed destination to github
